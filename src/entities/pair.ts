@@ -36,9 +36,9 @@ export class Pair {
         [tokens[0].address]: {
           ...PAIR_ADDRESS_CACHE?.[tokens[0].address],
           [tokens[1].address]: getCreate2Address(
-            FACTORY_ADDRESS,
+            FACTORY_ADDRESS[tokenA.chainId],
             keccak256(['bytes'], [pack(['address', 'address'], [tokens[0].address, tokens[1].address])]),
-            INIT_CODE_HASH
+            INIT_CODE_HASH[tokenA.chainId]
           )
         }
       }
@@ -48,6 +48,10 @@ export class Pair {
   }
 
   public constructor(tokenAmountA: TokenAmount, tokenAmountB: TokenAmount) {
+    const etherData: any = {
+      [ChainId.BSC_MAINNET]: { symbol: 'SLP', name: 'SwapLiquidity LP Token' },
+      [ChainId.HECO_MAINNET]: { symbol: 'JLP', name: 'JulSwap Heco LP Token' },
+    }
     const tokenAmounts = tokenAmountA.token.sortsBefore(tokenAmountB.token) // does safety checks
       ? [tokenAmountA, tokenAmountB]
       : [tokenAmountB, tokenAmountA]
@@ -55,8 +59,8 @@ export class Pair {
       tokenAmounts[0].token.chainId,
       Pair.getAddress(tokenAmounts[0].token, tokenAmounts[1].token),
       18,
-      'JLP',
-      'JulSwap Heco LP Tokens'
+      etherData[tokenAmounts[0].token.chainId].symbol,
+      etherData[tokenAmounts[0].token.chainId].name
     )
     this.tokenAmounts = tokenAmounts as [TokenAmount, TokenAmount]
   }

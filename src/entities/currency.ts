@@ -1,6 +1,6 @@
 import JSBI from 'jsbi'
 
-import { SolidityType } from '../constants'
+import { ChainId, SolidityType } from '../constants'
 import { validateSolidityTypeInstance } from '../utils'
 
 /**
@@ -16,7 +16,17 @@ export class Currency {
   /**
    * The only instance of the base class `Currency`.
    */
-  public static readonly ETHER: Currency = new Currency(18, 'HT', 'HT')
+  public static readonly ETHER: {[chainId in ChainId]: Currency} = {
+    [ChainId.MAINNET]: new Currency(18, 'ETH', 'ETH'),
+    [ChainId.ROPSTEN]: new Currency(18, 'ETH', 'ETH'),
+    [ChainId.RINKEBY]: new Currency(18, 'ETH', 'ETH'),
+    [ChainId.GÖRLI]: new Currency(18, 'ETH', 'ETH'),
+    [ChainId.KOVAN]: new Currency(18, 'ETH', 'ETH'),
+    [ChainId.BSC_MAINNET]: new Currency(18, 'BNB', 'BNB'),
+    [ChainId.BSC_TESTNET]: new Currency(18, 'BNB', 'BNB'),
+    [ChainId.HECO_MAINNET]: new Currency(18, 'HT', 'HT'),
+    [ChainId.HECO_TESTNET]: new Currency(18, 'HT', 'HT'),
+  }
 
   /**
    * Constructs an instance of the base class `Currency`. The only instance of the base class `Currency` is `Currency.ETHER`.
