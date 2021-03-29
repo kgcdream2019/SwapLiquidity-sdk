@@ -48,7 +48,7 @@ export class Pair {
   }
 
   public constructor(tokenAmountA: TokenAmount, tokenAmountB: TokenAmount) {
-    const etherData: any = {
+    const lpTokenData: any = {
       [ChainId.BSC_MAINNET]: { symbol: 'SLP', name: 'SwapLiquidity LP Token' },
       [ChainId.HECO_MAINNET]: { symbol: 'JLP', name: 'JulSwap Heco LP Token' },
     }
@@ -59,8 +59,8 @@ export class Pair {
       tokenAmounts[0].token.chainId,
       Pair.getAddress(tokenAmounts[0].token, tokenAmounts[1].token),
       18,
-      etherData[tokenAmounts[0].token.chainId].symbol,
-      etherData[tokenAmounts[0].token.chainId].name
+      lpTokenData[tokenAmounts[0].token.chainId].symbol,
+      lpTokenData[tokenAmounts[0].token.chainId].name
     )
     this.tokenAmounts = tokenAmounts as [TokenAmount, TokenAmount]
   }

@@ -64,6 +64,6 @@ export const WETH = {
   [ChainId.KOVAN]: new Token(ChainId.KOVAN, '0xd0A1E359811322d97991E03f863a0C30C2cF029C', 18, 'WETH', 'Wrapped Ether'),
   [ChainId.BSC_MAINNET]: new Token(ChainId.BSC_MAINNET, '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c', 18, 'WBNB', 'Wrapped BNB'),
   [ChainId.BSC_TESTNET]: new Token(ChainId.BSC_TESTNET, '0xae13d989daC2f0dEbFf460aC112a837C89BAa7cd', 18, 'WBNB', 'Wrapped BNB'),
-  [ChainId.HECO_MAINNET]: new Token(ChainId.HECO_MAINNET, '0x5545153ccfca01fbd7dd11c0b23ba694d9509a6f', 18, 'WHT', 'Wrapped HT'),
-  [ChainId.HECO_TESTNET]: new Token(ChainId.HECO_TESTNET, '0xA3402dc2616D57F2cbCE2F6e0Aeb7e3F0953d8dd', 18, 'WHT', 'Wrapped HT'),
+  [ChainId.HECO_MAINNET]: new Token(ChainId.HECO_MAINNET, '0x5545153ccfca01fbd7dd11c0b23ba694d9509a6f', 18, 'WHT', 'Wrapped Ether'),
+  [ChainId.HECO_TESTNET]: new Token(ChainId.HECO_TESTNET, '0xA3402dc2616D57F2cbCE2F6e0Aeb7e3F0953d8dd', 18, 'WHT', 'Wrapped Ether'),
 }

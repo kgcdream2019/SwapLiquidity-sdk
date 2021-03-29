@@ -44,9 +44,9 @@ export const INIT_CODE_HASH = {
   [ChainId.RINKEBY]: '',
   [ChainId.GORLI]: '',
   [ChainId.KOVAN]: '',
-  [ChainId.BSC_MAINNET]:'0x3d05450af2c2ae253bd3f0abf57d5ddb60d5304f79f5a5840e620907ad000e55',
+  [ChainId.BSC_MAINNET]:'0xb1e98e21a5335633815a8cfb3b580071c2e4561c50afd57a8746def9ed890b18',
   [ChainId.BSC_TESTNET]: '',
-  [ChainId.HECO_MAINNET]:'0xb1e98e21a5335633815a8cfb3b580071c2e4561c50afd57a8746def9ed890b18',
+  [ChainId.HECO_MAINNET]:'0x3d05450af2c2ae253bd3f0abf57d5ddb60d5304f79f5a5840e620907ad000e55',
   [ChainId.HECO_TESTNET]: '',
 }
 
