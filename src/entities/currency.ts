@@ -20,7 +20,7 @@ export class Currency {
     [ChainId.MAINNET]: new Currency(18, 'ETH', 'ETH'),
     [ChainId.ROPSTEN]: new Currency(18, 'ETH', 'ETH'),
     [ChainId.RINKEBY]: new Currency(18, 'ETH', 'ETH'),
-    [ChainId.GÖRLI]: new Currency(18, 'ETH', 'ETH'),
+    [ChainId.GORLI]: new Currency(18, 'ETH', 'ETH'),
     [ChainId.KOVAN]: new Currency(18, 'ETH', 'ETH'),
     [ChainId.BSC_MAINNET]: new Currency(18, 'BNB', 'BNB'),
     [ChainId.BSC_TESTNET]: new Currency(18, 'BNB', 'BNB'),
