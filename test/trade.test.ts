@@ -35,7 +35,7 @@ describe('Trade', () => {
   it('can be constructed with ETHER as input', () => {
     const trade = new Trade(
       new Route([pair_weth_0], ETHER[ChainId.MAINNET]),
-      CurrencyAmount.ether(JSBI.BigInt(100)),
+      CurrencyAmount.ether(JSBI.BigInt(100), ChainId.MAINNET),
       TradeType.EXACT_INPUT
     )
     expect(trade.inputAmount.currency).toEqual(ETHER[ChainId.MAINNET])
@@ -54,7 +54,7 @@ describe('Trade', () => {
   it('can be constructed with ETHER as output', () => {
     const trade = new Trade(
       new Route([pair_weth_0], token0, ETHER[ChainId.MAINNET]),
-      CurrencyAmount.ether(JSBI.BigInt(100)),
+      CurrencyAmount.ether(JSBI.BigInt(100), ChainId.MAINNET),
       TradeType.EXACT_OUTPUT
     )
     expect(trade.inputAmount.currency).toEqual(token0)
@@ -150,7 +150,7 @@ describe('Trade', () => {
     it('works for ETHER currency input', () => {
       const result = Trade.bestTradeExactIn(
         [pair_weth_0, pair_0_1, pair_0_3, pair_1_3],
-        CurrencyAmount.ether(JSBI.BigInt(100)),
+        CurrencyAmount.ether(JSBI.BigInt(100), ChainId.MAINNET),
         token3
       )
       expect(result).toHaveLength(2)
@@ -390,7 +390,7 @@ describe('Trade', () => {
       const result = Trade.bestTradeExactOut(
         [pair_weth_0, pair_0_1, pair_0_3, pair_1_3],
         token3,
-        CurrencyAmount.ether(JSBI.BigInt(100))
+        CurrencyAmount.ether(JSBI.BigInt(100), ChainId.MAINNET)
       )
       expect(result).toHaveLength(2)
       expect(result[0].inputAmount.currency).toEqual(token3)

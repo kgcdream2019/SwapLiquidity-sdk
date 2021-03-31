@@ -9,6 +9,7 @@ import { validateSolidityTypeInstance } from '../utils'
  * The only instance of the base class `Currency` is Ether.
  */
 export class Currency {
+  public readonly chainId: ChainId
   public readonly decimals: number
   public readonly symbol?: string
   public readonly name?: string
@@ -16,16 +17,16 @@ export class Currency {
   /**
    * The only instance of the base class `Currency`.
    */
-  public static readonly ETHER: {[chainId in ChainId]: Currency} = {
-    [ChainId.MAINNET]: new Currency(18, 'ETH', 'ETH'),
-    [ChainId.ROPSTEN]: new Currency(18, 'ETH', 'ETH'),
-    [ChainId.RINKEBY]: new Currency(18, 'ETH', 'ETH'),
-    [ChainId.GORLI]: new Currency(18, 'ETH', 'ETH'),
-    [ChainId.KOVAN]: new Currency(18, 'ETH', 'ETH'),
-    [ChainId.BSC_MAINNET]: new Currency(18, 'BNB', 'BNB'),
-    [ChainId.BSC_TESTNET]: new Currency(18, 'BNB', 'BNB'),
-    [ChainId.HECO_MAINNET]: new Currency(18, 'HT', 'HT'),
-    [ChainId.HECO_TESTNET]: new Currency(18, 'HT', 'HT'),
+  public static readonly ETHER: { [chainId in ChainId]: Currency } = {
+    [ChainId.MAINNET]: new Currency(ChainId.MAINNET, 18, 'ETH', 'ETH'),
+    [ChainId.ROPSTEN]: new Currency(ChainId.ROPSTEN, 18, 'ETH', 'ETH'),
+    [ChainId.RINKEBY]: new Currency(ChainId.RINKEBY, 18, 'ETH', 'ETH'),
+    [ChainId.GORLI]: new Currency(ChainId.GORLI, 18, 'ETH', 'ETH'),
+    [ChainId.KOVAN]: new Currency(ChainId.KOVAN, 18, 'ETH', 'ETH'),
+    [ChainId.BSC_MAINNET]: new Currency(ChainId.BSC_MAINNET, 18, 'BNB', 'BNB'),
+    [ChainId.BSC_TESTNET]: new Currency(ChainId.BSC_TESTNET, 18, 'BNB', 'BNB'),
+    [ChainId.HECO_MAINNET]: new Currency(ChainId.HECO_MAINNET, 18, 'HT', 'HT'),
+    [ChainId.HECO_TESTNET]: new Currency(ChainId.HECO_TESTNET, 18, 'HT', 'HT'),
   }
 
   /**
@@ -34,9 +35,10 @@ export class Currency {
    * @param symbol symbol of the currency
    * @param name of the currency
    */
-  protected constructor(decimals: number, symbol?: string, name?: string) {
+  protected constructor(chainId: ChainId, decimals: number, symbol?: string, name?: string) {
     validateSolidityTypeInstance(JSBI.BigInt(decimals), SolidityType.uint8)
 
+    this.chainId = chainId
     this.decimals = decimals
     this.symbol = symbol
     this.name = name

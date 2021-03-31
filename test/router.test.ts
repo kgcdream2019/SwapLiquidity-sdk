@@ -21,7 +21,7 @@ describe('Router', () => {
     describe('exact in', () => {
       it('ether to token1', () => {
         const result = Router.swapCallParameters(
-          Trade.exactIn(new Route([pair_weth_0, pair_0_1], ETHER[ChainId.MAINNET], token1), CurrencyAmount.ether(JSBI.BigInt(100))),
+          Trade.exactIn(new Route([pair_weth_0, pair_0_1], ETHER[ChainId.MAINNET], token1), CurrencyAmount.ether(JSBI.BigInt(100), ChainId.MAINNET)),
           { ttl: 50, recipient: '0x0000000000000000000000000000000000000004', allowedSlippage: new Percent('1', '100') },
           ChainId.MAINNET
         )
@@ -85,7 +85,7 @@ describe('Router', () => {
       })
       it('token1 to ether', () => {
         const result = Router.swapCallParameters(
-          Trade.exactOut(new Route([pair_0_1, pair_weth_0], token1, ETHER[ChainId.MAINNET]), CurrencyAmount.ether(JSBI.BigInt(100))),
+          Trade.exactOut(new Route([pair_0_1, pair_weth_0], token1, ETHER[ChainId.MAINNET]), CurrencyAmount.ether(JSBI.BigInt(100), ChainId.MAINNET)),
           { ttl: 50, recipient: '0x0000000000000000000000000000000000000004', allowedSlippage: new Percent('1', '100') },
           ChainId.MAINNET
         )
@@ -120,7 +120,7 @@ describe('Router', () => {
       describe('exact in', () => {
         it('ether to token1', () => {
           const result = Router.swapCallParameters(
-            Trade.exactIn(new Route([pair_weth_0, pair_0_1], ETHER[ChainId.MAINNET], token1), CurrencyAmount.ether(JSBI.BigInt(100))),
+            Trade.exactIn(new Route([pair_weth_0, pair_0_1], ETHER[ChainId.MAINNET], token1), CurrencyAmount.ether(JSBI.BigInt(100), ChainId.MAINNET)),
             {
               ttl: 50,
               recipient: '0x0000000000000000000000000000000000000004',
@@ -199,7 +199,7 @@ describe('Router', () => {
         it('token1 to ether', () => {
           expect(() =>
             Router.swapCallParameters(
-              Trade.exactOut(new Route([pair_0_1, pair_weth_0], token1, ETHER[ChainId.MAINNET]), CurrencyAmount.ether(JSBI.BigInt(100))),
+              Trade.exactOut(new Route([pair_0_1, pair_weth_0], token1, ETHER[ChainId.MAINNET]), CurrencyAmount.ether(JSBI.BigInt(100), ChainId.MAINNET)),
               {
                 ttl: 50,
                 recipient: '0x0000000000000000000000000000000000000004',
