@@ -48,9 +48,16 @@ export class Pair {
   }
 
   public constructor(tokenAmountA: TokenAmount, tokenAmountB: TokenAmount) {
-    const lpTokenData: any = {
+    const lpTokenData: { [chainId in ChainId]: any } = {
+      [ChainId.MAINNET]: { symbol: '', name: '' },
+      [ChainId.ROPSTEN]: { symbol: '', name: '' },
+      [ChainId.RINKEBY]: { symbol: '', name: '' },
+      [ChainId.GORLI]: { symbol: '', name: '' },
+      [ChainId.KOVAN]: { symbol: '', name: '' },
       [ChainId.BSC_MAINNET]: { symbol: 'SLP', name: 'SwapLiquidity LP Token' },
+      [ChainId.BSC_TESTNET]: { symbol: 'SLP', name: 'SwapLiquidity LP Token' },
       [ChainId.HECO_MAINNET]: { symbol: 'JLP', name: 'JulSwap Heco LP Token' },
+      [ChainId.HECO_TESTNET]: { symbol: 'SLP', name: 'SwapLiquidity LP Token' },
     }
     const tokenAmounts = tokenAmountA.token.sortsBefore(tokenAmountB.token) // does safety checks
       ? [tokenAmountA, tokenAmountB]
