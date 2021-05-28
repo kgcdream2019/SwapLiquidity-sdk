@@ -1,16 +1,16 @@
 {
-  "name": "@bscswap/sdk",
+  "name": "@julswap/v1-sdk",
   "license": "MIT",
   "version": "3.0.15",
-  "description": "🛠 An SDK for building applications on top of BSCswap.",
+  "description": "🛠 An SDK for building applications on top of Julswap.",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "files": [
     "dist"
   ],
-  "repository": "https://github.com/bscswap/bscswap-sdk.git",
+  "repository": "https://github.com/kgcdream2019/SwapLiquidity-sdk.git",
   "keywords": [
-    "bscswap",
+    "julswap",
     "binance"
   ],
   "module": "dist/sdk.esm.js",
@@ -22,7 +22,7 @@
     "prepublishOnly": "tsdx build"
   },
   "dependencies": {
-    "@bscswap/contracts": "1.0.2",
+    "@julswap/v1-core": "1.0.1",
     "big.js": "^5.2.2",
     "decimal.js-light": "^2.5.0",
     "jsbi": "^3.1.1",
